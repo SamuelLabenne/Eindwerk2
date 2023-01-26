@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:id="@+id/text_start"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/welcome_txt"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Welkom bij ksara events"
+            android:textSize="30dp"
+            android:layout_margin="30dp"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+
+            android:orientation="vertical">
+
+            <EditText
+                android:id="@+id/email_et"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_margin="16dp"
+                android:hint="Email"
+                android:importantForAutofill="no"
+                android:inputType="textEmailAddress"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/password_et"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_margin="16dp"
+                android:hint="Password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:minHeight="48dp" />
+
+            <EditText
+                android:id="@+id/confirm_password_et"
+                android:layout_width="match_parent"
+                android:layout_height="65dp"
+                android:layout_margin="16dp"
+                android:hint="Confirm Password"
+                android:importantForAutofill="no"
+                android:inputType="textPassword"
+                android:minHeight="48dp" />
+
+            <Button
+                android:id="@+id/btn_sign_up"
+                android:layout_width="171dp"
+                android:layout_height="65dp"
+                android:layout_gravity="center"
+                android:text="Sign Up"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+                tools:text="Sign Up" />
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Already ave an account?" />
+            <TextView
+                android:id="@+id/login_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:text="Login" />
+
+            <ProgressBar
+                android:id="@+id/p_b"
+                android:layout_width="171dp"
+                android:layout_height="65dp"
+                android:visibility="gone"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

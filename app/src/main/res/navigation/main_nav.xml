@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main_nav"
+    app:startDestination="@id/createAccountFragment">
+
+    <fragment
+        android:id="@+id/createAccountFragment"
+        android:name="be.ehb.eindwerk2.fragments.CreateAccountFragment"
+        android:label="CreateAccountFragment" >
+        <action
+            android:id="@+id/action_createAccountFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="be.ehb.eindwerk2.fragments.LoginFragment"
+        android:label="LoginFragment" >
+        <action
+            android:id="@+id/action_loginFragment_to_createAccountFragment"
+            app:destination="@id/createAccountFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/overviewFragment"
+        android:name="be.ehb.eindwerk2.fragments.OverviewFragment"
+        android:label="OverviewFragment" >
+        <action
+            android:id="@+id/action_overviewFragment_to_createEventFragment"
+            app:destination="@id/createEventFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/createEventFragment"
+        android:name="be.ehb.eindwerk2.fragments.createEventFragment"
+        android:label="createEventFragment" >
+        <action
+            android:id="@+id/action_createEventFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+</navigation>

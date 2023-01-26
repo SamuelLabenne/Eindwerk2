@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "635276311848",
+    "project_id": "eindwerk2-5a3fd",
+    "storage_bucket": "eindwerk2-5a3fd.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635276311848:android:25561ee4246e568e37e41d",
+        "android_client_info": {
+          "package_name": "be.ehb.eindwerk2"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635276311848-483cj3r215gpel9rjfnv9lj1d0obm1e8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBWdrkRiS_xlFncyLcl3c6uvn0dYFx-vFA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635276311848-483cj3r215gpel9rjfnv9lj1d0obm1e8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
