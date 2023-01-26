@@ -1,5 +1,7 @@
 package be.ehb.eindwerk2.model;
 
+import com.google.firebase.Timestamp;
+
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.List;
@@ -8,18 +10,45 @@ public class Event implements Serializable {
 
     private int id;
     private String title, description;
-    private List<User> invited;
+    Timestamp timestamp;
+    String Time;
+    String City;
+    /*private List<User> invited;
     private Location location;
-    private LocalDateTime time;
+    private LocalDateTime time;*/
 
     public Event(){}
 
-    public Event(String title, String description, List<User> invited, Location location, LocalDateTime time) {
+    public Event(String title, String description /*, List<User> invited, Location location, LocalDateTime time*/) {
         this.title = title;
         this.description = description;
-        this.invited = invited;
+        /*this.invited = invited;
         this.location = location;
-        this.time = time;
+        this.time = time;*/
+    }
+
+    public String getTime() {
+        return Time;
+    }
+
+    public void setTime(String time) {
+        Time = time;
+    }
+
+    public String getCity() {
+        return City;
+    }
+
+    public void setCity(String city) {
+        City = city;
+    }
+
+    public Timestamp getTimestamp() {
+        return timestamp;
+    }
+
+    public void setTimestamp(Timestamp timestamp) {
+        this.timestamp = timestamp;
     }
 
     public int getId() {
@@ -45,7 +74,7 @@ public class Event implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
-
+/*
     public List<User> getInvited() {
         return invited;
     }
@@ -68,5 +97,5 @@ public class Event implements Serializable {
 
     public void setTime(LocalDateTime time) {
         this.time = time;
-    }
+    }*/
 }

@@ -59,7 +59,7 @@
             tools:layout_editor_absoluteX="37dp" />
 
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/cityET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="82dp"
@@ -68,7 +68,7 @@
             tools:layout_editor_absoluteX="37dp" />
 
         <EditText
-            android:id="@+id/editText2"
+            android:id="@+id/dateET"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="82dp"
