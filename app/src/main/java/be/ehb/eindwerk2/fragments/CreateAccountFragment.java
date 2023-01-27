@@ -85,9 +85,10 @@ public class CreateAccountFragment extends Fragment {
                 changeInProgress(false);
                 if (task.isSuccessful()){
                     Toast.makeText(getActivity(), "account made with success",Toast.LENGTH_SHORT).show();
-                    /*firebaseAuth.getCurrentUser().sendEmailVerification();
-                    firebaseAuth.signOut();*/
-                    getActivity().finish();
+                    //firebaseAuth.getCurrentUser().sendEmailVerification();
+                    firebaseAuth.signOut();
+                    NavHostFragment.findNavController(CreateAccountFragment.this).navigate(R.id.action_createAccountFragment_to_loginFragment);
+
 
                 }else{
                     Toast.makeText(getActivity(), task.getException().getLocalizedMessage(),Toast.LENGTH_SHORT).show();

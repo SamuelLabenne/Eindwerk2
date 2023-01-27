@@ -3,12 +3,18 @@ package be.ehb.eindwerk2.fragments;
 import android.app.DownloadManager;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.PopupMenu;
+import android.widget.Switch;
+import android.widget.ToggleButton;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -30,6 +36,9 @@ public class OverviewFragment extends Fragment {
     private EventsOverviewBinding binding;
     RecyclerView rv;
     EventAdapter ea;
+    Button overviewBtn;
+    Switch switchBtn;
+
 
 
     @Nullable
@@ -38,6 +47,8 @@ public class OverviewFragment extends Fragment {
 
         binding= EventsOverviewBinding.inflate(inflater,container,false);
         rv = binding.recyclerView;
+        overviewBtn = binding.overviewBtn;
+        switchBtn = binding.toggle;
         return binding.getRoot();
     }
 
@@ -47,15 +58,30 @@ public class OverviewFragment extends Fragment {
 
         binding.addEventBtn.setOnClickListener((View v) -> {
             NavHostFragment.findNavController(OverviewFragment.this).navigate(R.id.action_overviewFragment_to_createEventFragment);
+
         });
 
         binding.overviewBtn.setOnClickListener((v -> showMenu()));
+
 
         setupRecyclerView();
     }
 
     void showMenu(){
-        //TODO fix menu when click
+        PopupMenu popupMenu = new PopupMenu(getActivity(),overviewBtn);
+        popupMenu.getMenu().add("Logout");
+        popupMenu.show();
+        popupMenu.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                if(item.getTitle()=="Logout"){
+                    FirebaseAuth.getInstance().signOut();
+                    NavHostFragment.findNavController(OverviewFragment.this).navigate(R.id.action_overviewFragment_to_loginFragment);
+                    return true;
+                }return  false;
+            }
+        });
+
 
     }
     static CollectionReference getCollectionReferenceForEvents(){
@@ -66,14 +92,37 @@ public class OverviewFragment extends Fragment {
 
     void setupRecyclerView(){
 
-        Query query = getCollectionReferenceForEvents().orderBy("timestamp",Query.Direction.DESCENDING);
-        FirestoreRecyclerOptions<Event> options = new FirestoreRecyclerOptions.Builder<Event>()
-                .setQuery(query,Event.class).build();
-        rv.setLayoutManager(new LinearLayoutManager(getActivity()));
-        ea = new EventAdapter(options,getActivity());
-        rv.setAdapter(ea);
+            Query query = getCollectionReferenceForEvents().orderBy("timestamp",Query.Direction.DESCENDING);
+            FirestoreRecyclerOptions<Event> options = new FirestoreRecyclerOptions.Builder<Event>()
+                    .setQuery(query,Event.class).build();
+            rv.setLayoutManager(new LinearLayoutManager(getActivity()));
+            ea = new EventAdapter(options,getActivity());
+            rv.setAdapter(ea);
+            //toggle(this.getView());
 
-    }
+
+
+        }
+
+
+    /*public void toggle(View view){
+        switchBtn.setOnClickListener(v -> {
+            if (switchBtn.isChecked()){
+                switchBtn.setChecked(true);
+                setupRecyclerView();
+
+
+            }else{
+                switchBtn.setChecked(false);
+                view.refreshDrawableState();
+
+            }
+        });
+    }*/
+
+
+
+
 
     @Override
     public void onStart() {

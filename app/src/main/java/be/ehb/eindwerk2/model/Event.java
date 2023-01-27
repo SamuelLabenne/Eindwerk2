@@ -11,8 +11,9 @@ public class Event implements Serializable {
     private int id;
     private String title, description;
     Timestamp timestamp;
-    String Time;
-    String City;
+    String time;
+    String city;
+    String docId;
     /*private List<User> invited;
     private Location location;
     private LocalDateTime time;*/
@@ -27,20 +28,28 @@ public class Event implements Serializable {
         this.time = time;*/
     }
 
+    public String getDocId() {
+        return docId;
+    }
+
+    public void setDocId(String docId) {
+        this.docId = docId;
+    }
+
     public String getTime() {
-        return Time;
+        return time;
     }
 
     public void setTime(String time) {
-        Time = time;
+        this.time = time;
     }
 
     public String getCity() {
-        return City;
+        return city;
     }
 
     public void setCity(String city) {
-        City = city;
+        this.city = city;
     }
 
     public Timestamp getTimestamp() {

@@ -30,6 +30,12 @@
         <action
             android:id="@+id/action_overviewFragment_to_createEventFragment"
             app:destination="@id/createEventFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_detailsFragment"
+            app:destination="@id/detailsFragment" />
+        <action
+            android:id="@+id/action_overviewFragment_to_loginFragment"
+            app:destination="@id/loginFragment" />
     </fragment>
     <fragment
         android:id="@+id/createEventFragment"
@@ -37,6 +43,17 @@
         android:label="createEventFragment" >
         <action
             android:id="@+id/action_createEventFragment_to_overviewFragment"
+            app:destination="@id/overviewFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailsFragment"
+        android:name="be.ehb.eindwerk2.fragments.DetailsFragment"
+        android:label="DetailsFragment" >
+        <argument
+            android:name="event"
+            app:argType="be.ehb.eindwerk2.model.Event" />
+        <action
+            android:id="@+id/action_detailsFragment_to_overviewFragment"
             app:destination="@id/overviewFragment" />
     </fragment>
 </navigation>
